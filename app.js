@@ -3,15 +3,15 @@ const clock = document.querySelector('.clock');
 const tick = () => {
 
     const now = new Date();
-    const h = now.getHours();
-    const m = now.getMinutes();
-    const s = now.getSeconds();
+    const time = new Intl.DateTimeFormat('default', {
+        hour12: true,
+        hour: 'numeric',
+        minute: 'numeric'
+    }).format(now)
 
     const html = `
 
-        <span>${h}</span>
-        <span>${m}</span>
-        <span>${s}</span>
+        <span>${time}</span>
     `;
 
     clock.innerHTML = html
